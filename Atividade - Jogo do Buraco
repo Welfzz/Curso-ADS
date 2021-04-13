@@ -1,0 +1,49 @@
+#include "stdafx.h"
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <cstdlib>
+
+using namespace std;
+
+int main()
+{
+
+	int p1[12], p2[12], p3[12], p4[12];
+
+
+	for (int i = 0; i < 11; i++) {
+
+		p1[i] = rand() % 13 + 1;
+		p2[i] = rand() % 13 + 1;
+		p3[i] = rand() % 13 + 1;
+		p4[i] = rand() % 13 + 1;
+
+	}
+
+	cout << "Jogador 1: ";
+	for (int j = 0; j < 11; j++) {
+		cout << " " << p1[j];
+	}
+	cout << endl;
+	cout << "Jogador 2: ";
+	for (int j = 0; j < 11; j++) {
+		cout << " " << p2[j];
+	}
+
+	cout << endl;
+	cout << "Jogador 3: ";
+	for (int j = 0; j < 11; j++) {
+		cout << " " << p3[j];
+	}
+	cout << endl;
+	cout << "Jogador 4: ";
+	for (int j = 0; j < 11; j++) {
+		cout << " " << p4[j];
+	}
+
+
+
+	return 0;
+}
