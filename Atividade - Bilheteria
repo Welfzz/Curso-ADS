@@ -1,0 +1,87 @@
+#include "stdafx.h"
+
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+using namespace std;
+
+int main()
+{
+	int operacao, vagas[14][39], fileira, poltrona, cont = 0;
+	float total = 0;
+
+	for (int l = 0; l < 15; l++) {
+		for (int c = 0; c < 40; c++) {
+			vagas[l][c] = 46;
+		}
+	}
+
+	do {
+
+
+		printf("\n0.	Finalizar\n");
+		printf("1.	Reservar poltrona\n");
+		printf("2.	Mapa de ocupação\n");
+		printf("3.	Faturamento\n\n");
+
+		printf("Execute uma operacao: ");
+		cin >> operacao;
+
+
+
+		if (operacao == 1)
+		{
+
+			printf("Entre com a fileira que deseja ocupar(15 fileiras ao total): ");
+			scanf("%d", &fileira);
+			printf("Entre com a poltrona que deseja(40 poltronas por fileira): ");
+			scanf("%d", &poltrona);
+
+			if (vagas[fileira - 1][poltrona - 1] == 35) {
+				printf("Este lugar já está ocupado!");
+			}
+			else {
+				printf("Vaga selecionada com sucesso!");
+				vagas[fileira - 1][poltrona - 1] = 35;
+
+				if (fileira >= 1 && fileira <= 5) {
+					total = total + 50;
+				}
+				else if(fileira >= 6 && fileira <= 10) {
+					total = total + 30;
+				}
+				else {
+					total = total + 15;
+				}
+				cont++;
+			}
+		}
+
+		if (operacao == 2) {
+
+			printf("'.' - Poltronas livres\n");
+			printf("'#' - Poltronas ocupadas\n");
+			for (int i = 0; i < 15; i++) {
+				for (int j = 0; j < 40; j++) {
+					printf("%c ", vagas[i][j]);
+				}
+			}
+
+
+		}
+
+		if (operacao == 3) {
+			printf("\nQuantidade de lugares reservados: ");
+			cout << cont;
+
+			printf("\nValor da bilheteria: R$");
+			printf("%.2f", total);
+
+		}
+
+	} while (operacao != 0);
+	
+	return 0;
+}
