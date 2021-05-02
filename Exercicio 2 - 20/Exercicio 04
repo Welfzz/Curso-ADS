@@ -1,0 +1,40 @@
+#include "stdafx.h"
+
+#include <string>	
+#include <algorithm>
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <ctype.h>
+
+using namespace std;
+
+int main()
+{
+	string primeiro, ultimo, meio;
+
+	cout << "Entre com o primeiro nome: ";
+	cin >> primeiro;
+	cout << "Entre com o nome do meio: ";
+	cin >> meio;
+	cout << "Entre com o ultimo nome: ";
+	cin >> ultimo;
+
+  
+
+  cout << "\n====Nome Completo====" << endl;
+	cout << primeiro << " " << meio << " " << ultimo;
+
+
+	transform(ultimo.begin(), ultimo.end(), ultimo.begin(), ::toupper);
+
+	cout << "\n====Nome Citação Bibliografica====" << endl;
+	cout << ultimo << ", " << primeiro << " " << meio[0] << ".";
+
+
+
+
+	return 0;
+
+}
