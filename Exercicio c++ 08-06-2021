@@ -1,0 +1,131 @@
+#include "stdafx.h"
+
+
+#include <iostream>
+#include <string.h>
+
+using namespace std;
+
+
+
+int cont;
+class Funcionario {
+public:
+	int prontuario;
+public:
+	string nome;
+public:
+	double salario;
+
+	string informacoes[100][3];
+
+
+
+	void inserir(int pro, string nom, double sal) {
+
+
+		informacoes[cont][0] = to_string(pro);
+		informacoes[cont][1] = nom;
+		informacoes[cont][2] = to_string(sal);
+
+	}
+
+	void excluir(int n) {
+		informacoes[n][0].erase();
+		informacoes[n][1].erase();
+		informacoes[n][2].erase();
+	}
+
+	void pesquisar(int p) {
+
+		for (int i = 0; i <= 2; i++) {
+
+			cout << informacoes[p][i] << " - ";
+		}
+	}
+
+	void listar(int a) {
+		double soma = 0;
+		for (int i = 0; i < a; i++) {
+
+			cout << "======================\n";
+			for (int j = 0; j < 3; j++) {
+				cout << informacoes[i][j] << "\n";
+			}
+		}
+	}
+
+
+
+};
+
+
+
+int main() {
+
+	Funcionario f;
+
+	int menu;
+	do {
+
+
+		cout << "======================\n";
+		cout << "0.Sair\n";
+		cout << "1.Incluir\n";
+		cout << "2.Excluir\n";
+		cout << "3.Pesquisar\n";
+		cout << "4.Listar\n";
+
+		cout << "Qual ação deseja tomar? ";
+		cin >> menu;
+
+		if (menu == 1) {
+			int prontuario;
+			string nome;
+			double salario;
+
+			cout << "Entre com o prontuario do funcionario: ";
+			cin >> prontuario;
+			cout << "Entre com o nome do funcionario: ";
+			cin >> nome;
+			cout << "Entre com o salario do funcionario: ";
+			cin >> salario;
+
+			f.inserir(prontuario, nome, salario);
+			cont++;
+		}
+
+		if (menu == 2) {
+			int n;
+
+			cout << "Qual registro deseja excluir? ";
+			cin >> n;
+			f.excluir(n);
+
+		}
+
+		if (menu == 3) {
+			int p;
+			cout << "qual prontuario deseja pesquisar? ";
+			cin >> p;
+			p = p - 1;
+
+			f.pesquisar(p);
+		}
+
+		if (menu == 4) {
+			int a = cont;
+
+			f.listar(a);
+		}
+
+
+
+
+	} while (menu != 0);
+
+
+
+
+
+}
