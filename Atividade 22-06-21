@@ -1,0 +1,86 @@
+// ConsoleApplication2.cpp : define o ponto de entrada para o aplicativo do console.
+//
+
+#include "stdafx.h"
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int v, c, a;
+
+	int numeros[30];
+
+	for (int i = 0; i < 30; i++) {
+		
+		//a recebe o valor de v
+		a = v;
+		cout << "Entre com um valor: ";
+		//v recebe seu valor
+		cin >> v;
+
+		
+
+		//enquanto o valor atual de A(valor que deve ser menor sempre) for maior ou igual ao valor atual de V (valor que deve ser maior sempre), a condição insiste que o usuario entre novamente com um maior
+		while (a >= v) {
+			cout << "Entre com um valor maior que o anterior: ";
+			cin >> v;
+		}
+
+		numeros[i] = v;
+
+			
+
+		
+	}
+
+	
+	cout << endl;
+	cout << "\n" << "Valores Pares" << endl;
+	cout << "===============================" << endl;
+	
+
+	for (int i = 0; i < 30; i++) {
+		
+		if (numeros[i] % 2 == 0) {
+			cout << numeros[i] << " ";
+		}
+	
+
+	}
+
+	cout << endl;
+	cout << "\n" << "Valores Impares" << endl;
+	cout << "===============================" << endl;
+
+	
+		
+
+	for (int i = 0; i < 30; i++) {
+
+		if(numeros[i] %2 != 0){
+			cout << numeros[i] << " ";
+		}
+
+
+	}
+
+	cout << endl;
+	cout << "\n" << "Todos os Valores" << endl;
+	cout << "===============================" << endl;
+
+	for (int i = 30-1; i >= 0; i--) {
+		
+		cout << numeros[i] << " ";
+
+	}
+
+		
+
+
+
+
+    return 0;
+}
+
