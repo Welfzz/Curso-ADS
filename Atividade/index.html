@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Atividade</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/CSS" href="style.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body class="bg-green">
+
+	<header class="p-3">
+		<nav class="navbar container">
+			
+			<h1 class="d-inline">TESTE DE PROGRAMAÇÃO</h1>
+
+			<div>
+				<ul class="nav ">
+					<li class="nav-item"><a href="#numRomano" class="nav-link text-dark">Atividade 1</a></li>
+					<li class="nav-item"><a href="#calcConta" class="nav-link text-dark">Atividade 3</a></li>
+				</ul>
+			</div>
+		</nav>
+		
+	</header>
+
+	
+	<section class="bg-light container" id="numRomano">
+		<article class="p-3">
+
+			<div class="bg-light p-5">
+
+				<h2 class="d-inline">
+				Atividade 1 - Conversor de números romanos.
+				</h2>
+
+
+				<div class="mt-5">
+
+
+					<form>
+						<label>Entre com os números para conversão:</label>
+						<input type="text" name="enter_roman" id="roman">
+						<button type="button" class="btn btn-outline-success" onclick="recebeNum()">Converter</button>
+					</form>
+				</div>
+
+				<p id="resultadoConversaoRom">Conversão Romana: </p>
+				<p id="resultadoConversaoAra">Conversão Arabica: </p>
+				
+
+			</div>
+
+			<hr>
+
+		</article>
+	</section>
+
+	<section class="bg-light container" id="calcConta">
+		<article class="p-3">
+
+			<div class="bg-light p-5">
+
+				<h2 class="d-inline">
+				Atividade 3 - Calculadora.
+				</h2>
+
+
+				<div class="mt-5">
+					<p>O programa funciona da seguinte forma: Entre com a quantidade de Pessoas, em seguida informe seus respectivos nomes e por ultimo entre com o nome dos produtos disponíveis que cada pessoa consumiu, individualmente. Os produtos oferecidos são: <strong>Pizza(R$42.00), Refrigerante(R$8.00) e Suco(R$7.00).</strong></p>
+
+					<form >
+						<label>Entre com a quantidade de pessoas: </label>
+						<input type="text" name="enter_qtd" id="QTD">
+						<button type="button" id="env" class="btn btn-outline-success" onclick="recebeQTD()">Enviar</button>
+
+							<div id="divCalculadora" class="p-2 border border-dark">
+								
+							</div>
+					</form>
+
+				</div>
+				
+
+			</div>
+
+			<hr>
+
+		</article>
+	</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="code.js"></script>
+
+</body>
+</html>

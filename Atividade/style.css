@@ -1,0 +1,25 @@
+html, body{
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+}
+
+.bg-green{
+	background-color: #9AD28F;
+}
+
+header{
+	background-color: #EDF4EC;
+}
+
+nav a{
+	border: 1px solid #EDF4EC;
+}
+
+nav a:hover{
+	border-bottom: 1px solid green;
+}
+
+h2{
+	border-bottom: 2px solid black;
+}
