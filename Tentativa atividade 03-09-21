@@ -1,0 +1,227 @@
+//CLASSE PRINCIPAL
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp5
+
+{
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int decisao;
+
+            do
+            {
+                Console.WriteLine("0.Sair");
+                Console.WriteLine("1. Cadastrar Vendedor");
+                Console.WriteLine("2. Consultar Vendedor");
+                Console.WriteLine("3. Excluir vendedor");
+                Console.WriteLine("4. Registrar venda");
+                Console.WriteLine("5. Listar Vendedores");
+
+                decisao = int.Parse(Console.ReadLine());
+
+
+                if (decisao == 1)
+                {
+                    Vendedor v = new Vendedor();
+                    Console.Write("Entre com o ID do vendedor a ser adicionado: ");
+                    v.Id = int.Parse(Console.ReadLine());
+                    v.Nome = Console.ReadLine();
+                    v.PercComissao = double.Parse(Console.ReadLine());
+
+                    Vendedores v2 = new Vendedores(10);
+                    //v2.addVendedor(v.Id);
+
+                }
+
+
+            } while (decisao != 0);
+
+        }
+    }
+}
+
+//CLASSE VENDEDORES
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp5
+{
+    class Vendedores
+    {
+        private Vendedor[] osVendedores;
+        private int max;
+        private int qtde;
+
+        public int Max
+        {
+            get { return max; }
+        }
+
+        public int Qtde
+        {
+            get { return qtde; }
+        }
+
+        public Vendedores (int max)
+        {
+            this.max = max;
+            this.qtde = 0;
+            this.osVendedores = new Vendedor[this.max];
+
+           for (int i = 0; i < this.max; ++i)
+            {
+               this.osVendedores[i] = new Vendedor();
+            }
+
+        }
+
+        public bool addVendedor(Vendedor v)
+        {
+         
+            bool adicionar = (this.qtde < this.max);
+            if (adicionar)
+            {
+                this.osVendedores[this.qtde] = v;
+                this.qtde++;
+            }
+            return adicionar;
+            
+           
+        }
+
+        public bool delVendedor(Vendedor v)
+        {
+             bool delet = false;
+
+            foreach(Vendedor index in this.osVendedores)
+            {
+                if (index.Equals(v))
+                {
+                    index.Id = -1;
+                    index.Nome = "...";
+                    index.PercComissao = -1;
+                    delet = true;
+
+                }
+            }
+            return delet;
+           
+
+        }
+
+        
+        public Vendedor searchVendedor(Vendedor v){
+
+            Vendedor vendedorEncontrado = new Vendedor();
+            //
+            //
+            //
+            //
+            return vendedorEncontrado;
+
+        }
+
+
+        public double valorVendas() {
+            return 0;
+        }
+
+        public double valorComissao()
+        {
+            return 0;
+        }
+    }
+}
+
+//CLASSE VENDA
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp5
+{
+    class Venda
+    {
+        private int qtde;
+        private double valor;
+
+        public double valorMedio()
+        {
+            return 0;
+        }
+
+    }
+}
+
+//CLASS VENDEDOR
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp5
+{
+    class Vendedor
+    {
+        private int id;
+        private string nome;
+        private double percComissao;
+        private Venda[] asVendas;
+
+
+        public int Id{
+            get { return id; }
+            set { id = value;  }
+        }
+
+        public string Nome
+        {
+            get { return nome; }
+            set { nome = value; }
+        }
+
+        public double PercComissao
+        {
+            get { return percComissao; }
+            set { percComissao = value; }
+        }
+
+
+
+        public void registrarVenda(int dia, Venda venda)
+        {
+            //??
+        }
+
+        public double valorVendas()
+        {
+            //?
+            return 0;
+        }
+
+        public double valorComissao()
+        {
+            //?
+            return 0;
+        }
+
+
+    }
+}
+
