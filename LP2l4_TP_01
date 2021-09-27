@@ -1,0 +1,368 @@
+Exercício 1: 
+
+Classe Author:
+
+public class Author {
+	private String name;
+	private String email;
+	private char gender;
+	
+	//Construtor não default
+	public Author(String name, String email, char gender) {
+		this.name = name;
+		this.email = email;
+		this.gender = gender;
+	}
+	
+	public String getName() {
+		return this.name;
+	}
+	
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	public String getEmail() {
+		return this.email;
+	}
+	
+	public char getGender() {
+		return this.gender;
+	}
+	
+	public String toString() {
+		return "Author[name="+name+", email="+email+", gender="+gender+"]";
+	}
+	
+}
+
+Classe TestAuthor:
+
+import java.util.Scanner;
+
+public class TestAuthor {
+
+	public static void main(String[] args) {
+		
+		//Inicializando a entrada de dados
+		Scanner tela = new Scanner(System.in);
+		
+		
+		//Inserção dos valores das variáveis
+		System.out.print("Digite seu nome: ");
+		String name = tela.next();
+		
+		System.out.print("\nDigite seu e-mail: ");
+		String email = tela.next();
+		
+		System.out.print("\nDigite seu gênero: ");
+		char gender = tela.next().charAt(0);
+		
+		//Instância da classe 
+		Author variavelTeste = new Author(name, email, gender);
+		
+		//Teste dos Getters
+		System.out.println(variavelTeste.getName());
+		System.out.println(variavelTeste.getEmail());
+		System.out.println(variavelTeste.getGender());
+		
+		//Teste do toString()
+		System.out.println(variavelTeste.toString());
+		System.out.println();
+		
+		//Teste do Setter
+		System.out.println("Digite um novo e-mail de acesso: ");
+		email = tela.next();
+		variavelTeste.setEmail(email);
+		
+		//Novo teste do toString()
+		System.out.println(variavelTeste.toString());
+		
+	}
+
+}
+
+Exercício 2:
+
+Classe Book:
+
+public class Book {
+	private String name;
+	private Author[] authors;
+	private double price;
+	private int qty = 0;
+	
+	public Book(String name, Author[] authors, double price) {
+		this.name = name;
+		this.authors = authors; 
+		this.price = price;
+	}
+	
+	public Book(String name, Author[] authors, double price, int qty) {
+		this.name = name;
+		this.authors = authors; 
+		this.price = price;
+		this.qty = qty;
+	}
+
+	public String getName() {
+		return name;
+	}
+	
+	public Author[] getAuthors() {
+		return authors;
+	}
+	
+	public double getPrice() {
+		return price;
+	}
+	
+	public int getQty() {
+		return qty;
+	}
+	
+	public void setQty(int qty) {
+		this.qty = qty;
+	}
+	
+	public String toString(int number) {
+		return "Book[name="+name+", authors={"+authors[number]+"}, price="+price+", qty="+qty;
+	}
+	
+	public String getAuthorNames() {
+		for(int i= 0; i < authors.length; i++) {
+			System.out.println("\nAutores: "+authors[i]+"");
+		}
+		return "";
+	}
+}
+
+Classe TestBook:
+
+import java.util.Scanner;
+
+public class TestBook {
+
+	public static void main(String[] args) {
+		
+		Scanner tela = new Scanner(System.in);
+		
+		
+		System.out.print("Digite o nome do livro: ");
+		String nomeLivro = tela.nextLine();
+		
+		Author[] autor = new Author[2];
+		autor[0] = new Author("Raphael", "inacioraphael9@gmail.com", 'm');
+		
+		System.out.print("\nDigite o valor do livro: ");
+		double valorLivro = tela.nextDouble();
+		
+		Book testeBook = new Book(nomeLivro, autor, valorLivro);
+		
+		System.out.println(testeBook.toString(0));
+		
+		autor[1] = new Author("Liniker", "balajunior@gmail.com", 'm');
+		
+		testeBook = new Book(nomeLivro, autor, valorLivro);
+		
+		System.out.println(testeBook.toString(1));
+		
+		System.out.println(testeBook.getAuthorNames());
+	}
+
+}
+
+Exercício 3:
+
+CLASSE PERSON
+
+public class Pessoa {
+	
+	private String name;
+	private String address;
+	
+	public Pessoa(String name, String address){
+		this.name = name;
+		this.address = address;
+		
+	}
+	
+	public String getName(){
+		return this.name;
+	}
+	
+	public String getAddress(){
+		 return this.address;
+	}
+	
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	
+	public String toString(){
+		return "Person [Name=" + getName() + ", Address=" + getAddress() +"]";
+	}
+	
+	
+
+}
+
+
+CLASSE STUDENT
+
+public class Student extends Pessoa {
+	
+	
+	private String program;
+	private int year;
+	private double fee;
+	
+	
+	public Student(String name, String address, String program, int year, double fee) {
+		super(name, address);
+		this.program = program;
+		this.year = year;
+		this.fee = fee;
+	}
+	
+	public String getProgram() {
+		return this.program;
+	}
+	
+	public void setProgram(String program) {
+		this.program = program;
+	}
+	
+	public int getYear() {
+		return this.year;
+	}
+	
+	public void setYear(int year) {
+		this.year = year;
+	}
+	
+	public double getFee() {
+		return this.fee;
+	}
+	
+	public void setFee(double fee) {
+		this.fee = fee;
+	}
+	
+	public String toString(){
+		return "Sudent[" + super.toString() + ", Program=" + getProgram() + ", Year=" + getYear() + ", Fee=" + getFee() + "]";
+	}
+	
+
+}
+
+CLASSE STAFF
+
+public class Staff extends Pessoa{
+	
+	private String school;
+	private double pay;
+	
+	public Staff(String name, String address, String school, double pay) {
+		super(name, address);
+		this.school = school;
+		this.pay = pay;
+	}
+	
+	public String getSchool() {
+		return this.school;
+	}
+	
+	public void setSchool(String school) {
+		this.school = school;
+	}
+	
+	public double getPay() {
+		return this.pay;
+	}
+	
+	public void setPay(double pay) {
+		this.pay = pay;
+	}
+	
+	public String toString() {
+		return "Staff[" + super.toString() + ", School=" + getSchool() + ", Pay=" + getPay() + "]";
+	}
+		
+}
+
+
+CLASSE PRINCIPAL
+
+import java.util.Scanner;
+
+public class ClassePrincipal {
+
+	public static void main(String[] args) {
+		
+		Scanner ler = new Scanner(System.in);
+		
+		String nome, endereco;
+		
+		
+		
+		System.out.print("Entre com um nome: ");
+		nome = ler.next();
+		System.out.print("Entre com um endereço: ");
+		endereco = ler.next();
+		
+		Pessoa pessoa = new Pessoa(nome,endereco);
+		System.out.println(pessoa.toString());
+		
+		System.out.print("Aluno ou Staff? [Escolha, respectivamente 0 ou 1]: ");
+		int status = ler.nextInt();
+		
+		
+		if(status == 0) {
+			
+			String program;
+			int year;
+			double fee;
+			
+			System.out.print("Entre com um program: ");
+			program = ler.next();
+			System.out.print("Entre com um year: ");
+			year = ler.nextInt();
+			System.out.print("Entre com um fee: ");
+			fee = ler.nextDouble();
+			
+			Student aluno = new Student(nome, endereco, program, year, fee);
+			
+			aluno.setProgram(program);
+			aluno.setYear(year);
+			aluno.setFee(fee);
+			
+			System.out.println(aluno.toString());
+			
+			
+		}
+		else if(status == 1) {
+			
+			String school;
+			double pay;
+			
+			System.out.print("Entre com um school: ");
+			school = ler.next();
+			System.out.print("Entre com um pay: ");
+			pay = ler.nextDouble();
+			
+			Staff staff = new Staff(nome, endereco, school, pay);
+			
+			staff.setSchool(school);
+			staff.setPay(pay);
+			
+			System.out.println(staff.toString());
+
+			
+		}
+		
+		ler.close();
+
+	}
+
+}
